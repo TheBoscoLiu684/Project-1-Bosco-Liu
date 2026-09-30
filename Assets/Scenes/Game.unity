@@ -1090,6 +1090,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HumanCharacterDummy_M
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: d9cd8eb4a074cd84ab2686c58bcf21d9, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 732864b815a982e44b651b9f02f737da, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1695,7 +1699,7 @@ MonoBehaviour:
   Orbits:
     Top:
       Radius: 2
-      Height: 3
+      Height: 3.5
     Center:
       Radius: 3
       Height: 2
