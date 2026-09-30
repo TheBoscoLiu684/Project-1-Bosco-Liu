@@ -8,7 +8,7 @@ public class RagdollTrigger : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public GameObject[] ragdoll;
     public Animator anim;
-    void Awake()
+    void Start()
     {
         anim.enabled = true;
         foreach (GameObject ragdoll in ragdoll)

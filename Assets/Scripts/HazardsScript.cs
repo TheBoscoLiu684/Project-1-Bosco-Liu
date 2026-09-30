@@ -22,7 +22,7 @@ public class HazardsScript : MonoBehaviour
         Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
         if(rb != null)
         {
-            rb.AddForce(rb.linearVelocity.normalized * knockback, ForceMode.Impulse);
+            rb.AddForce(rb.linearVelocity.normalized * -knockback, ForceMode.Impulse);
             Debug.Log("boom");
             Destroy(gameObject, 0.1f);
         }
