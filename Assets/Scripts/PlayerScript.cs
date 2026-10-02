@@ -6,6 +6,7 @@ public class PlayerScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public Rigidbody RB;
     public float speed = 5f;
+    public bool isRagdolled = false;
 
     void Start()
     {
@@ -14,8 +15,11 @@ public class PlayerScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        if (isRagdolled)
+            return;
+        
         Vector3 vel = new Vector3(0, RB.linearVelocity.y, 0);
         if (Keyboard.current.wKey.isPressed)
         {
@@ -35,4 +39,6 @@ public class PlayerScript : MonoBehaviour
         }
         RB.linearVelocity = vel;
     }
+
+
 }
