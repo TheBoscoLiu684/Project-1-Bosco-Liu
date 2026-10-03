@@ -42,6 +42,7 @@ public class RagdollTrigger : MonoBehaviour
         foreach (GameObject ragdoll in ragdollParts)
         {
             ragdoll.GetComponent<Rigidbody>().isKinematic = false;
+            ragdoll.GetComponent<Collider>().enabled = true;
         }
     }
 

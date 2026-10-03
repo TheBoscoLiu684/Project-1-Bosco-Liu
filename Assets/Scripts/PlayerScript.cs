@@ -7,6 +7,7 @@ public class PlayerScript : MonoBehaviour
     public Rigidbody RB;
     public float speed = 5f;
     public bool isRagdolled = false;
+    
 
     void Start()
     {

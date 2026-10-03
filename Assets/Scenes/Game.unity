@@ -561,9 +561,9 @@ MonoBehaviour:
   - {fileID: 1680047457}
   - {fileID: 946719511}
   anim: {fileID: 485460410}
-  movement: {fileID: 0}
-  movementRB: {fileID: 0}
-  movementCollider: {fileID: 0}
+  movement: {fileID: 695191898}
+  movementRB: {fileID: 695191897}
+  movementCollider: {fileID: 695191899}
 --- !u!4 &485460412 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d9cd8eb4a074cd84ab2686c58bcf21d9, type: 3}
@@ -1234,6 +1234,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: d9cd8eb4a074cd84ab2686c58bcf21d9, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 732864b815a982e44b651b9f02f737da, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
