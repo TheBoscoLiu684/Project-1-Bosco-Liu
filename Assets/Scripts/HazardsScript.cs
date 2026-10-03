@@ -22,7 +22,14 @@ public class HazardsScript : MonoBehaviour
         Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
         if(rb != null)
         {
-            rb.AddForce(rb.linearVelocity.normalized * -knockback, ForceMode.Impulse);
+            Vector3 direction = (other.transform.position - transform.position).normalized;
+            rb.AddForce(direction * knockback, ForceMode.Impulse);
+            RagdollTrigger ragdoll = other.gameObject.GetComponentInChildren<RagdollTrigger>();
+            if(ragdoll != null)
+            {
+                ragdoll.RagDollTrigger();
+                ragdoll.Knockback(direction, knockback);
+            }
             Debug.Log("boom");
             Destroy(gameObject, 0.1f);
         }

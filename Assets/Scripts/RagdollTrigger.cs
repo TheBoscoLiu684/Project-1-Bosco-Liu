@@ -33,8 +33,9 @@ public class RagdollTrigger : MonoBehaviour
         }
     }
 
-    void RagDollTrigger()
+    public void RagDollTrigger()
     {
+        Debug.Log("ragdolled");
         movement.isRagdolled = true;
         anim.enabled = false;
         movementRB.isKinematic = true;
@@ -46,6 +47,18 @@ public class RagdollTrigger : MonoBehaviour
         }
     }
 
+    public void Knockback(Vector3 direction, float force)
+    {
+        foreach (GameObject ragdoll in ragdollParts)
+        {
+            Rigidbody rb = ragdoll.GetComponent<Rigidbody>();
+
+            if (rb != null)
+            {
+                rb.AddForce(direction * force, ForceMode.Impulse);
+            }
+        }
+    }
 
 
 }
