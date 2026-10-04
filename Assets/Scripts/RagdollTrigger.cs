@@ -11,8 +11,11 @@ public class RagdollTrigger : MonoBehaviour
     public PlayerScript movement;
     public Rigidbody movementRB;
     public Collider movementCollider;
+    public float wakeupTime = 3f;
+    public Transform hipBone;
     void Start()
     {
+        hipBone = anim.GetBoneTransform(HumanBodyBones.Hips);
         anim.enabled = true;
         foreach (GameObject ragdoll in ragdollParts)
         {
@@ -26,24 +29,41 @@ public class RagdollTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        if (movement.isRagdolled)
         {
-            RagDollTrigger();
-
+            
+            Debug.Log("player ragdolled");
+            RagdollUp();
         }
     }
 
     public void RagDollTrigger()
     {
-        Debug.Log("ragdolled");
+        Debug.Log("hit");
         movement.isRagdolled = true;
         anim.enabled = false;
         movementRB.isKinematic = true;
         movementCollider.enabled = false;
+        wakeupTime = 3f;
         foreach (GameObject ragdoll in ragdollParts)
         {
             ragdoll.GetComponent<Rigidbody>().isKinematic = false;
             ragdoll.GetComponent<Collider>().enabled = true;
+        }
+    }
+
+    public void RagdollDisable()
+    {
+        Debug.Log("Not Ragdolled");
+        AlignHips();
+        movement.isRagdolled = false;
+        anim.enabled = true;
+        movementRB.isKinematic = false;
+        movementCollider.enabled = true;
+        foreach (GameObject ragdoll in ragdollParts)
+        {
+            ragdoll.GetComponent<Rigidbody>().isKinematic = true;
+            ragdoll.GetComponent<Collider>().enabled = false;
         }
     }
 
@@ -60,5 +80,22 @@ public class RagdollTrigger : MonoBehaviour
         }
     }
 
+    public void RagdollUp()
+    {
+        Debug.Log("RagdollUp is running");
+        wakeupTime -= Time.deltaTime;
+        Debug.Log("Timer: " + wakeupTime);
+        if (wakeupTime <= 0)
+        {
+            RagdollDisable();
+            
+        }
+    }
 
+    public void AlignHips()
+    {
+        Vector3 hipPosition = hipBone.position;
+
+        movement.transform.position = new Vector3(hipPosition.x, movement.transform.position.y, hipPosition.z);
+    }
 }
