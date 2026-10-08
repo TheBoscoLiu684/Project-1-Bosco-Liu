@@ -19,8 +19,9 @@ public class HazardsScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
-        if(rb != null)
+        Debug.Log("MINE HIT: " + other.gameObject.name);
+     
+        if(other.gameObject.CompareTag("Player"))
         {
             Vector3 direction = (other.transform.position - transform.position).normalized;
             rb.AddForce(direction * knockback, ForceMode.Impulse);

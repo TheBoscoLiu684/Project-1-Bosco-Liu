@@ -39,6 +39,8 @@ public class RagdollTrigger : MonoBehaviour
 
     public void RagDollTrigger()
     {
+        if (movement.isRagdolled)
+            return;
         Debug.Log("hit");
         movement.isRagdolled = true;
         anim.enabled = false;
@@ -75,6 +77,8 @@ public class RagdollTrigger : MonoBehaviour
 
             if (rb != null)
             {
+                rb.isKinematic = false;
+                rb.useGravity = true;
                 rb.AddForce(direction * force, ForceMode.Impulse);
             }
         }
