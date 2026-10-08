@@ -1,13 +1,13 @@
-using System.Threading.Tasks;
 using UnityEngine;
 
-public class HazardsScript : MonoBehaviour
+public class HazardScriptRoll : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public Rigidbody rb;
     public float knockback;
-    void Awake()
+    void Start()
     {
+        Destroy(gameObject, 8);
         rb = GetComponent<Rigidbody>();
     }
 
@@ -19,21 +19,20 @@ public class HazardsScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        Debug.Log("MINE HIT: " + other.gameObject.name);
-     
-        if(other.gameObject.CompareTag("Player"))
+        Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
+        if (rb != null)
         {
             Vector3 direction = (other.transform.position - transform.position).normalized;
             rb.AddForce(direction * knockback, ForceMode.Impulse);
             RagdollTrigger ragdoll = other.gameObject.GetComponentInChildren<RagdollTrigger>();
-            if(ragdoll != null)
+            if (ragdoll != null)
             {
                 ragdoll.RagDollTrigger();
                 ragdoll.Knockback(direction, knockback);
             }
-            Debug.Log("boom");
-            Destroy(gameObject, 0.1f);
+            Debug.Log("bonk");
+
         }
-        
+
     }
 }

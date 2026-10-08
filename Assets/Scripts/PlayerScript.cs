@@ -20,29 +20,38 @@ public class PlayerScript : MonoBehaviour
     {
         if (isRagdolled)
             return;
-        Vector3 vel = new Vector3(0, RB.linearVelocity.y, 0);
+        Vector3 move = Vector3.zero;
 
         if (Keyboard.current.wKey.isPressed)
         {
-            vel += transform.forward * speed;
+            move += Vector3.forward;
         }
 
         if (Keyboard.current.sKey.isPressed)
         {
-            vel += transform.forward * -speed;
+            move += Vector3.back;
         }
 
         if (Keyboard.current.aKey.isPressed)
         {
-            vel += transform.right * -speed;
+            move += Vector3.left;
         }
-
         if (Keyboard.current.dKey.isPressed)
         {
-            vel += transform.right * speed;
+            move += Vector3.right;
         }
 
-        RB.linearVelocity = vel;
+        if(move != Vector3.zero)
+        {
+            move = move.normalized;
+            RB.linearVelocity = new Vector3(move.x * speed, RB.linearVelocity.y, move.z * speed);
+            RB.MoveRotation(Quaternion.LookRotation(move));
+        }
+        else
+        {
+            RB.linearVelocity = new Vector3(0, RB.linearVelocity.y, 0);
+        }
+        
 
     }
 
