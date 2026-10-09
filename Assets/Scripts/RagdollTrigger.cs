@@ -58,15 +58,15 @@ public class RagdollTrigger : MonoBehaviour
     {
         Debug.Log("Not Ragdolled");
         AlignHips();
-        movement.isRagdolled = false;
-        anim.enabled = true;
-        movementRB.isKinematic = false;
-        movementCollider.enabled = true;
         foreach (GameObject ragdoll in ragdollParts)
         {
             ragdoll.GetComponent<Rigidbody>().isKinematic = true;
             ragdoll.GetComponent<Collider>().enabled = false;
         }
+        movement.isRagdolled = false;
+        anim.enabled = true;
+        movementRB.isKinematic = false;
+        movementCollider.enabled = true;
     }
 
     public void Knockback(Vector3 direction, float force)

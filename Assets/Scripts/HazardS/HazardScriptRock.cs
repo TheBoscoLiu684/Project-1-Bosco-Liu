@@ -1,24 +1,24 @@
 using UnityEngine;
 
-public class HazardScriptRoll : MonoBehaviour
+public class HazardScriptRock : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public Rigidbody rb;
     public float knockback;
-    void Start()
+    void Awake()
     {
-        Destroy(gameObject, 10);
         rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnCollisionEnter(Collision other)
     {
+        Debug.Log("MINE HIT: " + other.gameObject.name);
         Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
         if (rb != null)
         {
@@ -30,8 +30,8 @@ public class HazardScriptRoll : MonoBehaviour
                 ragdoll.RagDollTrigger();
                 ragdoll.Knockback(direction, knockback);
             }
-            Debug.Log("bonk");
-
+            Debug.Log("slip");
+            
         }
 
     }

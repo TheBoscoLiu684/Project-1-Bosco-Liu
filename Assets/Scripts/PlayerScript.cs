@@ -7,6 +7,8 @@ public class PlayerScript : MonoBehaviour
     public Rigidbody RB;
     public float speed = 5f;
     public bool isRagdolled = false;
+    public Animator anim;
+    public float rotationSpeed;
     
 
     void Start()
@@ -45,14 +47,16 @@ public class PlayerScript : MonoBehaviour
         {
             move = move.normalized;
             RB.linearVelocity = new Vector3(move.x * speed, RB.linearVelocity.y, move.z * speed);
-            RB.MoveRotation(Quaternion.LookRotation(move));
+            Quaternion location = Quaternion.LookRotation(move);
+            Quaternion rotateTowards = Quaternion.RotateTowards(RB.rotation, location, rotationSpeed * Time.fixedDeltaTime);
+            RB.MoveRotation(rotateTowards);
         }
         else
         {
             RB.linearVelocity = new Vector3(0, RB.linearVelocity.y, 0);
         }
-        
 
+        anim.SetFloat("Speed", RB.linearVelocity.magnitude);
     }
 
 
