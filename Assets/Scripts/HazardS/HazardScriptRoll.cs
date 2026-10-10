@@ -30,7 +30,7 @@ public class HazardScriptRoll : MonoBehaviour
                 ragdoll.RagDollTrigger();
                 ragdoll.Knockback(direction, knockback);
             }
-            Debug.Log("bonk");
+            //Debug.Log("bonk");
 
         }
 

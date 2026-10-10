@@ -30,7 +30,7 @@ public class HazardScriptSpinner : MonoBehaviour
                 ragdoll.RagDollTrigger();
                 ragdoll.Knockback(direction, knockback);
             }
-            Debug.Log("whack");
+            //Debug.Log("whack");
             
         }
 

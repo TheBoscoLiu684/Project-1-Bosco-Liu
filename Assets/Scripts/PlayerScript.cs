@@ -9,7 +9,8 @@ public class PlayerScript : MonoBehaviour
     public bool isRagdolled = false;
     public Animator anim;
     public float rotationSpeed;
-    
+    public bool isGettingUp = false;
+
 
     void Start()
     {
@@ -20,7 +21,7 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (isRagdolled)
+        if (isRagdolled || isGettingUp)
             return;
         Vector3 move = Vector3.zero;
 
@@ -59,5 +60,5 @@ public class PlayerScript : MonoBehaviour
         anim.SetFloat("Speed", RB.linearVelocity.magnitude);
     }
 
-
+    
 }

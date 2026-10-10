@@ -14887,6 +14887,7 @@ MonoBehaviour:
   isRagdolled: 0
   anim: {fileID: 485460410}
   rotationSpeed: 720
+  isGettingUp: 0
 --- !u!136 &695191899
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -31760,7 +31761,7 @@ Transform:
   m_GameObject: {fileID: 1513257129}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16.54467, y: 0, z: -29.869446}
+  m_LocalPosition: {x: 16.54467, y: -0, z: -29.869446}
   m_LocalScale: {x: 2, y: 1, z: 18}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -18,7 +18,7 @@ public class HazardScriptRock : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        Debug.Log("MINE HIT: " + other.gameObject.name);
+        //Debug.Log("MINE HIT: " + other.gameObject.name);
         Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
         if (rb != null)
         {
@@ -30,7 +30,7 @@ public class HazardScriptRock : MonoBehaviour
                 ragdoll.RagDollTrigger();
                 ragdoll.Knockback(direction, knockback);
             }
-            Debug.Log("slip");
+            //Debug.Log("slip");
             
         }
 

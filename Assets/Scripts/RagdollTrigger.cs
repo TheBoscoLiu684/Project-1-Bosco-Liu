@@ -13,6 +13,7 @@ public class RagdollTrigger : MonoBehaviour
     public Collider movementCollider;
     public float wakeupTime = 3f;
     public Transform hipBone;
+    
     void Start()
     {
         hipBone = anim.GetBoneTransform(HumanBodyBones.Hips);
@@ -32,7 +33,7 @@ public class RagdollTrigger : MonoBehaviour
         if (movement.isRagdolled)
         {
             
-            Debug.Log("player ragdolled");
+            //Debug.Log("player ragdolled");
             RagdollUp();
         }
     }
@@ -41,7 +42,7 @@ public class RagdollTrigger : MonoBehaviour
     {
         if (movement.isRagdolled)
             return;
-        Debug.Log("hit");
+        //Debug.Log("hit");
         movement.isRagdolled = true;
         anim.enabled = false;
         movementRB.isKinematic = true;
@@ -56,7 +57,7 @@ public class RagdollTrigger : MonoBehaviour
 
     public void RagdollDisable()
     {
-        Debug.Log("Not Ragdolled");
+        //Debug.Log("Not Ragdolled");
         AlignHips();
         foreach (GameObject ragdoll in ragdollParts)
         {
@@ -64,9 +65,11 @@ public class RagdollTrigger : MonoBehaviour
             ragdoll.GetComponent<Collider>().enabled = false;
         }
         movement.isRagdolled = false;
+        movement.isGettingUp = true;
         anim.enabled = true;
         movementRB.isKinematic = false;
         movementCollider.enabled = true;
+        HipOrientation();
     }
 
     public void Knockback(Vector3 direction, float force)
@@ -86,9 +89,9 @@ public class RagdollTrigger : MonoBehaviour
 
     public void RagdollUp()
     {
-        Debug.Log("RagdollUp is running");
+        //Debug.Log("RagdollUp is running");
         wakeupTime -= Time.deltaTime;
-        Debug.Log("Timer: " + wakeupTime);
+        //Debug.Log("Timer: " + wakeupTime);
         if (wakeupTime <= 0)
         {
             RagdollDisable();
@@ -99,7 +102,28 @@ public class RagdollTrigger : MonoBehaviour
     public void AlignHips()
     {
         Vector3 hipPosition = hipBone.position;
-
+        
         movement.transform.position = new Vector3(hipPosition.x, movement.transform.position.y, hipPosition.z);
+    }
+
+    public void HipOrientation()
+    {
+        Vector3 upDirection = hipBone.up;
+        if(Vector3.Dot(upDirection, Vector3.up) > 0)
+        {
+            Debug.Log("up");
+            anim.SetTrigger("GetUpBack");
+        }
+        else
+        {
+            Debug.Log("Down");
+            anim.SetTrigger("GetUpFront");
+        }
+    }
+
+    public void FinishGettingUp()
+    {
+        Debug.Log("got up");
+        movement.isGettingUp = false;
     }
 }
