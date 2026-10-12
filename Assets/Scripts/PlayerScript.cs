@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -60,5 +61,15 @@ public class PlayerScript : MonoBehaviour
         anim.SetFloat("Speed", RB.linearVelocity.magnitude);
     }
 
-    
+    private void OnCollisionEnter(Collision collision)
+    {
+        GameObject collidedObject = collision.gameObject;
+        if(collidedObject.CompareTag("Finish"))
+        {
+            GameManager.instance.win = true;
+            SceneManager.LoadScene("WIN");
+            
+        }
+    }
+
 }

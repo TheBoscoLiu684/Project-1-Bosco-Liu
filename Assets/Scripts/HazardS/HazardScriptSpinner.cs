@@ -6,6 +6,7 @@ public class HazardScriptSpinner : MonoBehaviour
     public Rigidbody rb;
     public float knockback;
     public Vector3 spinSpeed = new Vector3(0f, 3f, 0f);
+    public bool canHit = true;
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -19,6 +20,10 @@ public class HazardScriptSpinner : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
+        if (!canHit)
+            return;
+            
+        
         Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
         if (rb != null)
         {
@@ -29,10 +34,18 @@ public class HazardScriptSpinner : MonoBehaviour
             {
                 ragdoll.RagDollTrigger();
                 ragdoll.Knockback(direction, knockback);
+                canHit = false;
+                Invoke(nameof(ResetHit), 5f);
             }
             //Debug.Log("whack");
             
         }
 
     }
+    
+    public void ResetHit()
+    {
+        canHit = true;
+    }
+       
 }
