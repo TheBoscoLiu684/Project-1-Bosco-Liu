@@ -243,7 +243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HazardScriptSpinner
   rb: {fileID: 0}
   knockback: 0
-  spinSpeed: {x: 0, y: 1, z: 0}
+  spinSpeed: {x: 0, y: 90, z: 0}
   canHit: 1
 --- !u!4 &17409383 stripped
 Transform:
@@ -3250,7 +3250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HazardScriptSpinner
   rb: {fileID: 0}
   knockback: 10
-  spinSpeed: {x: 0, y: 1, z: 0}
+  spinSpeed: {x: 0, y: 90, z: 0}
   canHit: 1
 --- !u!1001 &165563577
 PrefabInstance:
@@ -8136,8 +8136,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.21769302, y: -0.000000011110466, z: 0.000000002478102, w: 0.9760173}
-  m_LocalPosition: {x: 0.77900004, y: 2.7278914, z: -18.908998}
+  m_LocalRotation: {x: 0.21770722, y: 0.000000002479171, z: -5.5299665e-10, w: 0.97601414}
+  m_LocalPosition: {x: 0.77900004, y: 2.021224, z: -18.908998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8538,7 +8538,7 @@ Transform:
   m_GameObject: {fileID: 345357348}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.73775, y: 0, z: 16.54028}
+  m_LocalPosition: {x: 0.51, y: 0, z: 0.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8755,7 +8755,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HazardScriptSpinner
   rb: {fileID: 0}
   knockback: 10
-  spinSpeed: {x: 0, y: 1, z: 0}
+  spinSpeed: {x: 0, y: 90, z: 0}
   canHit: 1
 --- !u!4 &350776030 stripped
 Transform:
@@ -8891,7 +8891,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HazardScriptSpinner
   rb: {fileID: 0}
   knockback: 0
-  spinSpeed: {x: 0, y: 1, z: 0}
+  spinSpeed: {x: 0, y: 90, z: 0}
   canHit: 1
 --- !u!65 &353240011
 BoxCollider:
@@ -9995,7 +9995,7 @@ Transform:
   m_GameObject: {fileID: 396369178}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.4, y: 0.1, z: -16.3}
+  m_LocalPosition: {x: -0.4, y: 0.1, z: -17.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10879,7 +10879,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HazardScriptSpinner
   rb: {fileID: 0}
   knockback: 0
-  spinSpeed: {x: 0, y: 1, z: 0}
+  spinSpeed: {x: 0, y: 90, z: 0}
   canHit: 1
 --- !u!1001 &440059863
 PrefabInstance:
@@ -14383,7 +14383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HazardScriptSpinner
   rb: {fileID: 0}
   knockback: 0
-  spinSpeed: {x: 0, y: 1, z: 0}
+  spinSpeed: {x: 0, y: 100, z: 0}
   canHit: 1
 --- !u!65 &584080605
 BoxCollider:
@@ -17541,7 +17541,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HazardScriptSpinner
   rb: {fileID: 684788180}
   knockback: 10
-  spinSpeed: {x: 0, y: 1, z: 0}
+  spinSpeed: {x: 0, y: 90, z: 0}
   canHit: 1
 --- !u!65 &684788179
 BoxCollider:
@@ -27373,7 +27373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HazardScriptSpinner
   rb: {fileID: 0}
   knockback: 0
-  spinSpeed: {x: 0, y: 1, z: 0}
+  spinSpeed: {x: 0, y: 90, z: 0}
   canHit: 1
 --- !u!1 &1146992616 stripped
 GameObject:
@@ -29549,7 +29549,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HazardScriptSpinner
   rb: {fileID: 0}
   knockback: 0
-  spinSpeed: {x: 0, y: 1, z: 0}
+  spinSpeed: {x: 0, y: 90, z: 0}
   canHit: 1
 --- !u!1001 &1233545885
 PrefabInstance:
@@ -33125,8 +33125,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1376109213}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.21769305, y: 1.4997609e-11, z: -1.3193817e-11, w: 0.9760173}
-  m_LocalPosition: {x: 0.77900004, y: 3.0367117, z: -19.373228}
+  m_LocalRotation: {x: 0.21770723, y: -0.000000029487648, z: 0.00000000657744, w: 0.97601414}
+  m_LocalPosition: {x: 0.77900004, y: 3.0367117, z: -20.43323}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -41413,8 +41413,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HazardScriptSpinner
   rb: {fileID: 1692529178}
   knockback: 10
-  spinSpeed: {x: 0, y: 1, z: 0}
-  canHit: 1
+  spinSpeed: {x: 0, y: 90, z: 0}
+  canHit: 0
 --- !u!4 &1692529190 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4717a0a27f2f11c429fbd8121f427b67, type: 3}
@@ -44378,7 +44378,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HazardScriptSpinner
   rb: {fileID: 1795133708}
   knockback: 10
-  spinSpeed: {x: 0, y: 1, z: 0}
+  spinSpeed: {x: 0, y: 90, z: 0}
   canHit: 1
 --- !u!4 &1795133712 stripped
 Transform:

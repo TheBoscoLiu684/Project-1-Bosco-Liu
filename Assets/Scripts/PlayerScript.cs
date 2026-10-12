@@ -77,6 +77,8 @@ public class PlayerScript : MonoBehaviour
         if(collidedObject.CompareTag("Finish"))
         {
             GameManager.instance.win = true;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             SceneManager.LoadScene("WIN");
             
         }

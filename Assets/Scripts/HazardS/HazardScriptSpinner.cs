@@ -5,7 +5,7 @@ public class HazardScriptSpinner : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public Rigidbody rb;
     public float knockback;
-    public Vector3 spinSpeed = new Vector3(0f, 3f, 0f);
+    public Vector3 spinSpeed = new Vector3(0f, 90f, 0f);
     public bool canHit = true;
     void Awake()
     {
@@ -15,7 +15,7 @@ public class HazardScriptSpinner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(spinSpeed);
+        transform.Rotate(spinSpeed * Time.deltaTime);
     }
 
     private void OnCollisionEnter(Collision other)

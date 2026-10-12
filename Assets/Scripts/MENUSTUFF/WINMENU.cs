@@ -31,6 +31,6 @@ public class WINMENU : MonoBehaviour
     {
         GameManager.instance.time = 0f;
         GameManager.instance.win = false;
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Start");
     }
 }
