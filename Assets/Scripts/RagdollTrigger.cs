@@ -126,4 +126,28 @@ public class RagdollTrigger : MonoBehaviour
         Debug.Log("got up");
         movement.isGettingUp = false;
     }
+
+    public void RagdollReset()
+    {
+        Debug.Log("Ragdoll Reset");
+        foreach(GameObject ragdoll in ragdollParts)
+        {
+            Rigidbody rb = ragdoll.GetComponent<Rigidbody>();
+            Collider col = rb.GetComponent<Collider>();
+            rb.isKinematic = true;
+            rb.useGravity = false;
+            col.enabled = false;
+        }
+
+        movement.isRagdolled = false;
+        movement.isGettingUp = false;
+
+        movementRB.isKinematic = false;
+        movementRB.linearVelocity = Vector3.zero;
+        movementRB.angularVelocity = Vector3.zero;
+        movementRB.useGravity = true;
+
+        movementCollider.enabled = true;
+        anim.enabled = true;
+    }
 }

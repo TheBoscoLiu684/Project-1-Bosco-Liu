@@ -1,3 +1,4 @@
+using UnityEditor.PackageManager.Requests;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -11,6 +12,8 @@ public class PlayerScript : MonoBehaviour
     public Animator anim;
     public float rotationSpeed;
     public bool isGettingUp = false;
+    public Transform checkPoint;
+    public RagdollTrigger ragdoll;
 
 
     void Start()
@@ -22,6 +25,13 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+
+        if (Keyboard.current.rKey.wasPressedThisFrame)
+        {
+            ResetToCheckPoint();
+            Debug.Log("Reset");
+        }
+
         if (isRagdolled || isGettingUp)
             return;
         Vector3 move = Vector3.zero;
@@ -72,4 +82,16 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    public void ResetToCheckPoint()
+    {
+        if (checkPoint == null)
+            return;
+
+        ragdoll.RagdollReset();
+        RB.linearVelocity = Vector3.zero;
+        RB.angularVelocity = Vector3.zero;
+        transform.position = checkPoint.position;
+        transform.rotation = checkPoint.rotation;
+        
+    }
 }
